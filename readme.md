@@ -5,7 +5,7 @@ Responsively crop content copy down to a user-defined number of lines in an acce
 
 Click to fully restore content via a sliding drop-down animation.
 
-As used on <a href="http://www.tesco.com/food-love-stories/">Tesco Food Love Stories</a>.
+As used on Tesco's <a href="http://www.tesco.com/food-love-stories/">Food Love Stories</a>.
 
 Vanilla JavaScript, small script <2kB minified and gzipped.
 
