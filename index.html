@@ -1,0 +1,100 @@
+<head>
+  <meta charset=UTF-8>
+  <meta http-equiv=X-UA-Compatible content="IE=edge">
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <title>Crop copy, restore on-click</title>
+
+  <link rel=stylesheet href="css/styles.css">
+</head>
+<body>
+
+  <svg style=display:none>
+    <defs>
+      <!-- combine to create plus symbol -->
+      <symbol viewBox="0 0 38 38" id="icon-vert">
+        <path d="M19 10.5l0 17"></path>
+      </symbol>
+      <symbol viewBox="0 0 38 38" id="icon-hori">
+        <path d="M10.5 19l17 0"></path>
+      </symbol>
+    </defs>
+  </svg>
+
+
+  <h1>Responsively crop copy, restore onclick via sliding drop-down animation</h1>
+
+  <p>
+    Responsively crop content copy down to a user-defined number of lines in an accessible manner.<br>
+    Click to fully restore content via a sliding drop-down animation.</p>
+  <p>
+    As used on <a href="http://www.tesco.com/food-love-stories/">Tesco Food Love Stories</a>.
+  </p>
+
+
+  <section>
+
+    <h2>Examples</h2>
+
+    <h3>Single line:</h3>
+
+    <div class=CCR>
+      <div class=CCR_txt data-cropCopyRestore>
+        If you’ve seen our recent TV ad, you’ll be in on our Food Love Story about ‘David’s’ shameful secret: when he met his wife, he fibbed about sharing her love of spicy food. 15 years later, he hasn’t come clean, but he’s still making his wife her favourite curry – with a sneaky dollop of cooling yogurt for him.
+      </div>
+    </div>
+
+    <h3>Two lines:</h3>
+
+    <div class=CCR>
+      <div class=CCR_txt data-cropCopyRestore=2>
+        Sometimes it’s the undemandingly easy, everyday recipes that deliver the most joy. For ‘Iain’ and his dad, from our Food Love Story, it’s croque monsieur. They first had it on a joint trip to France and, since then, it’s become their favourite weekend lunch. ‘Iain’s’ made a few changes to it along the way (bonjour, wafer-thin roast turkey) – but for him and his dad, it’s most definitely ‘proper’.
+      </div>
+    </div>
+
+  </section>
+
+
+  <h2>Usage</h2>
+
+  <p>Include a link to the styles:</p>
+
+  <figure>
+    <figcaption class=visually-hidden>Language HTML</figcaption>
+    <pre><code contenteditable spellcheck=false>
+&lt;link rel="stylesheet" href="css/styles.css"&gt;
+    </code></pre>
+  </figure>
+
+  <p>Add content block(s) and data attribute.<br>The attribute value is equal to the number of lines to display.</p>
+
+  <figure>
+    <figcaption class=visually-hidden>Language HTML</figcaption>
+    <pre><code contenteditable spellcheck=false>
+&lt;div class="CCR"&gt;
+    &lt;div class="CCR_txt"
+         data-cropCopyRestore="2"&gt;
+      Content copy&hellip;
+    &lt;/div&gt;
+&lt;/div&gt;
+    </code></pre>
+  </figure>
+
+
+  <p>Include a link to the script:</p>
+
+  <figure>
+    <figcaption class=visually-hidden>Language HTML</figcaption>
+    <pre><code contenteditable spellcheck=false>
+&lt;script src="js/cropCopyRestore.2.0.min.js"&gt;&lt;/script&gt;
+    </code></pre>
+  </figure>
+
+
+  <p>CodePen demo: <a href="https://codepen.io/2kool2/pen/PWmzMa">Responsively crop copy, restore onclick via sliding drop-down animation</a></p>
+  <p>GitHub repo: <a href="https://github.com/2kool2/crop-copy-slide-restore">crop-copy-slide-restore</a></p>
+  <p>Mike Foskett @ <a href="https://websemantics.uk/">webSemantics</a></p>
+
+
+  <script src="js/cropCopyRestore.2.0.min.js"></script>
+
+</body>

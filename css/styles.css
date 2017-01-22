@@ -1,0 +1,121 @@
+
+/* Generic styles */
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #3a3a3a;
+  max-width: 40rem;
+}
+figure {margin: 1rem 0}
+pre, code {display:block;margin:0}
+pre {overflow-x:scroll;resize:horizontal;min-width:100%;background-color:#333}
+pre > code {text-shadow:0 1px #000;word-wrap:normal;padding-left:.75rem}
+::selection {background-color:#000}
+::-moz-selection {background-color:#000}
+h1, h2, h3 {font-weight: 100; line-height:1.25}
+h1 {font-size:1.75rem}
+h2 {font-size:1.5rem;margin-top:2em}
+a,a:visited {color:#fff}
+
+/* helper class */
+* {
+  box-sizing: border-box;
+}
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+/* Main styles */
+
+.CCR {
+  /* Animated via JS embedding inline max-height values */
+  /* Note: 1ms shorter than SVG rotation duration */
+  overflow: hidden;
+  transition: max-height .6s ease-out;
+}
+
+.CCR_txt {
+  /* Optional, adjust to meet individual project */
+  color: #fff;
+  background-color: #000;
+  padding: .75rem 1rem;
+}
+.CCR_txt[role="button"] {
+  cursor: pointer;
+}
+
+.CCR_txt * {
+  /* Required, polyfill if unsupported */
+  /* Note: Prevents embedded links from working */
+  pointer-events: none;
+}
+
+
+/* Icon styles */
+
+.CCR_icon {
+  /* SVG container (required) */
+  /* Fixes Safari's focus/hover state box-shadow */
+
+  /* Override colours here if required: */
+  /* color: #fff; */
+  background-color: #3a3a3a;
+
+  float: right;
+  margin: 0 0 .75rem .75rem;
+
+  /* Today we look through the round window */
+  border-radius: 100%;
+  overflow: hidden;
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  -webkit-transition: box-shadow .3s ease-out;
+  transition: box-shadow .3s ease-out;
+}
+.CCR_svg {
+  background-color: transparent;
+  color: currentColor;
+  border: .125em solid currentColor;
+  border: 2px solid #3a3a3a;
+  border-radius: 100%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  stroke-width: 4;
+  stroke-linecap: square;
+  stroke: currentColor;
+
+  /* Note: 1ms longer than SVG rotation duration */
+  -webkit-transition: transform .7s ease-out;
+  transition: transform .7s ease-out;
+}
+
+
+/* Icon animation */
+
+.CCR-expanded .CCR_svg {
+  /* 360deg provides a slower rotation */
+  transform: rotateZ(180deg);
+}
+.CCR_use-plus {
+  /* Note: same as SVG rotation duration */
+  -webkit-transition: opacity .7s ease-out;
+  transition: opacity .7s ease-out;
+}
+.CCR-expanded .CCR_use-plus {
+  opacity: 0;
+}
+
+/* Acts as focus state indicator for the control */
+/* A requirement to meet WCAG 2 */
+.CCR_txt:hover > .CCR_icon,
+.CCR_txt:focus > .CCR_icon {
+  box-shadow: 0 0 0 4px #99BAD9;
+}
