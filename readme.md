@@ -13,9 +13,9 @@ I believe <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2 level
 
 
 <br>
-##Example
+##Demo
 
-<strong>CodePen demo: <a href="http://codepen.io/2kool2/pen/PWmzMa">Responsively crop copy, restore onclick via sliding drop-down animation</a></strong>
+<strong>CodePen: <a href="http://codepen.io/2kool2/pen/PWmzMa">Responsively crop copy, restore onclick via sliding drop-down animation</a></strong>
 
 <br>
 ##Basic usage
