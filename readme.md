@@ -11,13 +11,11 @@ Vanilla JavaScript, small script <2kB minified and gzipped. Support down to IE9.
 
 I believe <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2 level AA accessible but as yet unconfirmed.
 
-<strong>CodePen demo: <a href="http://codepen.io/2kool2/pen/PWmzMa">Responsively crop copy, restore onclick via sliding drop-down animation</a></strong>
-
 
 <br>
 ##Example
 
-[codepen_embed height="265" theme_id="dark" slug_hash="PWmzMa" default_tab="js,result" user="2kool2" preview="true" data-preview="true"]See the Pen <a href='http://codepen.io/2kool2/pen/PWmzMa/'>Responsively crop copy, restore onclick via slide animation</a> by mike foskett (<a href='http://codepen.io/2kool2'>@2kool2</a>) on <a href='http://codepen.io'>CodePen</a>.[/codepen_embed]
+<strong>CodePen demo: <a href="http://codepen.io/2kool2/pen/PWmzMa">Responsively crop copy, restore onclick via sliding drop-down animation</a></strong>
 
 <br>
 ##Basic usage
