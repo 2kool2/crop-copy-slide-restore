@@ -17,8 +17,7 @@ I believe <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2 level
 <br>
 ##Example
 
-<iframe height='265' scrolling='no' title='Responsively crop copy, restore onclick via slide animation' src='//codepen.io/2kool2/embed/preview/PWmzMa/?height=265&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/2kool2/pen/PWmzMa/'>Responsively crop copy, restore onclick via slide animation</a> by mike foskett (<a href='http://codepen.io/2kool2'>@2kool2</a>) on <a href='http://codepen.io'>CodePen</a>.
-</iframe>
+[codepen_embed height="265" theme_id="dark" slug_hash="PWmzMa" default_tab="js,result" user="2kool2" preview="true" data-preview="true"]See the Pen <a href='http://codepen.io/2kool2/pen/PWmzMa/'>Responsively crop copy, restore onclick via slide animation</a> by mike foskett (<a href='http://codepen.io/2kool2'>@2kool2</a>) on <a href='http://codepen.io'>CodePen</a>.[/codepen_embed]
 
 <br>
 ##Basic usage
