@@ -7,7 +7,7 @@ Click to fully restore content via a sliding drop-down animation.
 
 As used on Tesco's <a href="http://www.tesco.com/food-love-stories/">Food Love Stories</a>.
 
-Vanilla JavaScript, small script <2kB minified and gzipped.
+Vanilla JavaScript, small script <2kB minified and gzipped. Support down to IE9.
 
 I believe <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2 level AA accessible but as yet unconfirmed.
 
