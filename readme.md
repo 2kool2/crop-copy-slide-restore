@@ -23,13 +23,11 @@ Incude a link to the styles:
 <link rel="stylesheet" href="css/styles.css">
 ```
 
-Add content block(s) and data attribute.
-
-The attribute value is equal to the number of lines to display.
+Add content block(s) with data attribute (value = number of lines to display).
 
 ```html
-<div class=CCR>
-  <div class=CCR_txt data-cropCopyRestore=2>
+<div class="CCR">
+  <div class="CCR_txt" data-cropCopyRestore="2">
     Content copy...
   </div>
 </div>
@@ -44,9 +42,7 @@ Include a link to the script:
 <br>
 ##Status
 
-In cross-browser / platform testing.
-
-Accessibility testing to follow.
+In cross-browser / platform testing. Accessibility testing to follow.
 
 CodePen demo: <a href="https://codepen.io/2kool2/pen/PWmzMa">Responsively crop copy, restore onclick via sliding drop-down animation</a>
 
