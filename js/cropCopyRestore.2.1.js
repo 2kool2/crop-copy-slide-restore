@@ -1,4 +1,4 @@
-// Crop copy responsively, to user-defined number of lines, then restore onclick - v2.0 (IE9+) - 22/01/2017 - M.J.Foskett - https://websemantics.uk/
+// Crop copy responsively, to user-defined number of lines, then restore onclick - v2.1 (IE9+) - 23/01/2017 - M.J.Foskett - https://websemantics.uk/
 var cropCopyRestore = (function (window, document) {
 
   "use strict";
@@ -8,7 +8,8 @@ var cropCopyRestore = (function (window, document) {
   var ellipsis = "…"; // "\u2026"
   var clonedClass = "CCR-clone";
   var expandedClass = "CCR-expanded";
-  var textClass = "CCR_copy";
+  var textClass = "CCR_txt"; // html text content class
+  var copyClass = "CCR_copy"; // span added inside textClass to contain just the copy
   var iconSVG = "<span class=CCR_icon><svg class=CCR_svg focussable=false><use class=CCR_use-plus xlink:href=#icon-vert></use><use xlink:href=#icon-hori></use></svg></span>";
   var readMoreSpan = "<span class=visually-hidden> [Read more]</span>";
 
@@ -16,9 +17,9 @@ var cropCopyRestore = (function (window, document) {
   var debounce=function(e,t,n){var a;return function(){var r=this,i=arguments,o=function(){a=null,n||e.apply(r,i)},s=n&&!a;clearTimeout(a),a=setTimeout(o,t||200),s&&e.apply(r,i)}};
 
   // transitionend event test and prefix - https://gist.github.com/O-Zone/7230245
-  function(n){var i={transition:"transitionend",WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"otransitionend"},t=document.createElement("div");for(var o in i)if("undefined"!=typeof t.style[o]){n.transitionEnd=i[o];break}}(window);
+  !function(n){var i={transition:"transitionend",WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"otransitionend"},t=document.createElement("div");for(var o in i)if("undefined"!=typeof t.style[o]){n.transitionEnd=i[o];break}}(window);
 
-  // classList polyfill (for IE9) - Devon Govett - https://gist.github.com/devongovett/1381839
+  // Minimal classList polyfill (for IE9) - Devon Govett - https://gist.github.com/devongovett/1381839
   "classList"in document.documentElement||!Object.defineProperty||"undefined"==typeof HTMLElement||Object.defineProperty(HTMLElement.prototype,"classList",{get:function(){function e(e){return function(t){var s=n.className.split(/\s+/),i=s.indexOf(t);e(s,i,t),n.className=s.join(" ")}}var n=this,t={add:e(function(e,n,t){~n||e.push(t)}),remove:e(function(e,n){~n&&e.splice(n,1)}),toggle:e(function(e,n,t){~n?e.splice(n,1):e.push(t)}),contains:function(e){return!!~n.className.split(/\s+/).indexOf(e)},item:function(e){return n.className.split(/\s+/)[e]||null}};return Object.defineProperty(t,"length",{get:function(){return n.className.split(/\s+/).length}}),t}});
 
 
@@ -28,7 +29,6 @@ var cropCopyRestore = (function (window, document) {
     return str.substring(0, str.lastIndexOf(removeStr));
   }
 
-
   function _removeTrailingPunct(str) {
     return str.replace(/[ .,!?:;"“‘'\-]+$/, "");
   }
@@ -37,9 +37,8 @@ var cropCopyRestore = (function (window, document) {
 // Display and animation functions
 
   function _display(obj, str) {
-    obj.querySelector("." + textClass).textContent = str;
+    obj.querySelector("." + copyClass).textContent = str;
   }
-
 
   function _displayCroppedText(obj) {
     _display(obj, obj.croppedText + ellipsis);
@@ -48,11 +47,9 @@ var cropCopyRestore = (function (window, document) {
     }
   }
 
-
   function _resetAttr(obj, bool) {
     obj.setAttribute("aria-expanded", bool);
   }
-
 
   function _addRemainerText(obj) {
 
@@ -72,10 +69,11 @@ var cropCopyRestore = (function (window, document) {
     }
   }
 
-
   function _removeRemainerText(obj) {
-    _displayCroppedText(obj);
-    _resetAttr(obj, false);
+    if (obj) {
+      _displayCroppedText(obj);
+      _resetAttr(obj, false);
+    }
   }
 
 
@@ -85,9 +83,11 @@ var cropCopyRestore = (function (window, document) {
     // create an invisible clone (used to get an objects height)
     var clone = obj.cloneNode(true);
     clone.classList.add(clonedClass);
-    clone.querySelector("." + textClass).textContent = str;
-    obj.parentNode.insertBefore(clone, obj.nextSibling);
-    clone.initialHeight = clone.clientHeight;
+    if (clone.querySelector("." + copyClass)) {
+      clone.querySelector("." + copyClass).textContent = str;
+      obj.parentNode.insertBefore(clone, obj.nextSibling);
+      clone.initialHeight = clone.clientHeight;
+    }
     return clone;
   }
 
@@ -111,7 +111,7 @@ var cropCopyRestore = (function (window, document) {
     var i = 0;
     var lines = 1;
     var clone = _createClone(obj, txtArr[i] + " ");
-    var textObj = clone.querySelector("." + textClass);
+    var textObj = clone.querySelector("." + copyClass);
 
     for (i = 1; i < txtArr.length; i++) {
 
@@ -152,28 +152,40 @@ var cropCopyRestore = (function (window, document) {
   }
 
 
+  function _getButtonObj(obj) {
+    if (obj && obj.classList.contains(textClass)) {
+      return obj;
+    }
+    if (obj.parentNode === null) {
+      return false;
+    }
+    return _getButtonObj(obj.parentNode);
+  }
+
+
   function _clicked(event) {
 
-    var obj = event.target;
+    var obj = _getButtonObj(event.target);
 
-    if (obj.getAttribute("aria-expanded") === "true") {
-      obj.parentNode.style.maxHeight = _getCroppedHeight(obj) + "px";
-      obj.parentNode.classList.remove(expandedClass);
-      obj.parentNode.p = obj;
-      if (window.transitionEnd) {
-        obj.parentNode.addEventListener(window.transitionEnd, _removeText, false);
+    if (obj) {
+      if (obj.getAttribute("aria-expanded") === "true") {
+        obj.parentNode.style.maxHeight = _getCroppedHeight(obj) + "px";
+        obj.parentNode.classList.remove(expandedClass);
+        obj.parentNode.p = obj;
+        if (window.transitionEnd) {
+          obj.parentNode.addEventListener(window.transitionEnd, _removeText, false);
+        } else {
+          _removeRemainerText(obj);
+        }
       } else {
-        _removeRemainerText(obj);
+        obj.parentNode.style.maxHeight = _getFullHeight(obj) + "px";
+        obj.parentNode.classList.add(expandedClass);
+        _addRemainerText(obj);
       }
-    } else {
-      obj.parentNode.style.maxHeight = _getFullHeight(obj) + "px";
-      obj.parentNode.classList.add(expandedClass);
-      _addRemainerText(obj);
-      }
+    }
 
     event.preventDefault();
   }
-
 
   function _keyPressed(event) {
     // Enter or space key
@@ -182,18 +194,15 @@ var cropCopyRestore = (function (window, document) {
     }
   }
 
-
   function _addEvents(obj) {
     obj.addEventListener("click", _clicked, false);
     obj.addEventListener("keydown", _keyPressed, false);
   }
 
-
   function _removeEvents(obj) {
     obj.removeEventListener("click", _clicked);
     obj.removeEventListener("keydown", _keyPressed);
   }
-
 
 // Initialisation
 
@@ -207,13 +216,11 @@ var cropCopyRestore = (function (window, document) {
     obj.setAttribute("aria-controls", obj.id);
   }
 
-
   function _prepareContent(obj) {
 
     // Quick and dirty - replace if you wish
-    obj.innerHTML =  iconSVG + "<span role=alert aria-live=assertive class=" + textClass + ">" +obj.innerHTML + "</span>";
+    obj.innerHTML =  iconSVG + "<span role=alert aria-live=assertive class=" + copyClass + ">" +obj.innerHTML + "</span>";
   }
-
 
   function start() {
 
@@ -248,5 +255,4 @@ var cropCopyRestore = (function (window, document) {
 
 }(window, document));
 
-// Run script on page load
 window.addEventListener("load", cropCopyRestore, false);

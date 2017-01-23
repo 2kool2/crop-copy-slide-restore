@@ -50,12 +50,6 @@ a,a:visited {color:#fff}
   cursor: pointer;
 }
 
-.CCR_txt * {
-  /* Required, polyfill if unsupported */
-  /* Note: Prevents embedded links from working */
-  pointer-events: none;
-}
-
 
 /* Icon styles */
 
