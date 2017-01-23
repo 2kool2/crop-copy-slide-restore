@@ -39,7 +39,7 @@ Add content block(s) with data attribute (value = number of lines to display).
 Include a link to the script:
 
 ```html
-<script src="js/cropCopyRestore.2.0.min.js"></script>
+<script src="js/cropCopyRestore.2.1.min.js"></script>
 ```
 
 <br>
