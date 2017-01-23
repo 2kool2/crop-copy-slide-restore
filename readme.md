@@ -1,9 +1,9 @@
-#Responsively crop copy, restore onclick via sliding drop-down animation
+#Crop copy then restore onclick
 
 
-Responsively crop content copy down to a user-defined number of lines in an accessible manner.
+Responsively crop your content copy down to a user-defined number of lines, all in an accessible manner.
 
-Click to fully restore content via a sliding drop-down animation.
+Click to fully restore the content via a sliding drop-down animation.
 
 
 <br>
