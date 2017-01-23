@@ -5,10 +5,6 @@ Responsively crop content copy down to a user-defined number of lines in an acce
 
 Click to fully restore content via a sliding drop-down animation.
 
-As used on Tesco's <a href="http://www.tesco.com/food-love-stories/">Food Love Stories</a>.
-
-Vanilla JavaScript, small script <2kB minified and gzipped. Support down to IE9.
-
 I believe <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2 level AA accessible but as yet unconfirmed.
 
 
@@ -16,6 +12,9 @@ I believe <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2 level
 ##Demo
 
 <strong>CodePen: <a href="http://codepen.io/2kool2/pen/PWmzMa">Responsively crop copy, restore onclick via sliding drop-down animation</a></strong>
+
+As used on Tesco's <a href="http://www.tesco.com/food-love-stories/">Food Love Stories</a>.
+
 
 <br>
 ##Basic usage
@@ -50,6 +49,7 @@ Include a link to the script:
 * Resizing the viewport recalculates the length of text displayed and adjusts the max-height values.
 * Utilises ARIA roles and live region to help meet accessibility WCAG 2.
 * Vanilla JavaScript and less than 2kB minified &amp; gzipped.
+* Support down to IE9.
 
 
 <br>
