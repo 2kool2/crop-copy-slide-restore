@@ -46,7 +46,7 @@ Include a link to the script:
 ##Features
 
 * User-defined number of lines initially displayed, defined in the HTML.
-* Animation is via JavaScript rewriting an accurate inline max-height property and is CSS controlled.
+* JavaScript writes an accurate inline max-height property and is animated via CSS.
 * Resizing the viewport recalculates the length of text displayed and adjusts the max-height values.
 * Utilises ARIA roles and live region to help meet accessibility WCAG 2.
 * Vanilla JavaScript and less than 2kB minified &amp; gzipped.
