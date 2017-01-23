@@ -17,7 +17,7 @@ As used on Tesco's <a href="http://www.tesco.com/food-love-stories/">Food Love S
 <br>
 ##Basic usage
 
-Incude a link to the styles:
+Include a link to the styles:
 
 ```html
 <link rel="stylesheet" href="css/styles.css">
