@@ -49,8 +49,7 @@ Cross-browser tested:<br>
   Mac: Firefox Dev, Chrome, Safari, Opera Dev.<br>
   PC: Firefox Dev, Chrome, IE9 - Edge.
 
-<p>In Live testing.<br>To be followed by full accessibility testing.</p>
-In cross-browser / platform testing. Accessibility testing to follow.
+In Live testing.<br>To be followed by full accessibility testing.
 
 CodePen demo: <a href="https://codepen.io/2kool2/pen/PWmzMa">Responsively crop copy, restore onclick via sliding drop-down animation</a>
 
