@@ -5,7 +5,7 @@ Responsively crop your content copy down to a user-defined number of lines.
 
 Click to fully restore the content via a sliding drop-down animation.
 
-All in an accessible manner.
+All delivered in an accessible manner.
 
 
 <br>
