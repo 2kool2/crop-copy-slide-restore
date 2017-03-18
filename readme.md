@@ -47,7 +47,7 @@ Include a link to the script:
 * User-defined number of lines initially displayed, defined in the HTML.
 * JavaScript writes an accurate inline max-height property which is animated via CSS.
 * Resizing the viewport recalculates the length of text displayed and adjusts the max-height values.
-* Utilises ARIA roles and live region to help meet <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2 (accessibility).
+* Utilises <abbr title="Accessible Rich Internet Applications">ARIA</abbr> roles and live region to help meet <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2 (accessibility).
 * Vanilla JavaScript and less than 2kB minified &amp; gzipped.
 * Support down to IE9.
 
@@ -59,12 +59,11 @@ Cross-browser tested:<br>
   Mac: Firefox Dev, Chrome, Safari, Opera Dev.<br>
   PC: Firefox Dev, Chrome, IE9 - Edge.
 
-In Live testing.<br>To be followed by full accessibility testing.
-
-CodePen demo: <a href="https://codepen.io/2kool2/pen/PWmzMa">Responsively crop copy, restore onclick via sliding drop-down animation</a>
+In Live testing.<br>
+To be followed by full accessibility testing.
 
 GitHub repo: <a href="https://github.com/2kool2/crop-copy-slide-restore">crop-copy-slide-restore</a>
-
+GitHub Gist: <a href="https://gist.github.com/2kool2/ec2ae520ba62078c98fcd648170e1c8f">Gist of crop-copy-slide-restore</a>
 
 <hr>
 Mike Foskett @ <a href="https://websemantics.uk/">webSemantics</a>
