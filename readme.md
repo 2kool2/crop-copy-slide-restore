@@ -1,4 +1,4 @@
-#Crop copy then restore on-click
+<h1>Crop copy then restore on-click</h1>
 
 
 Responsively crop your content copy down to a user-defined number of lines.
@@ -9,7 +9,7 @@ All delivered in an accessible manner.
 
 
 <br>
-##Demo
+<h2>Demo</h2>
 
 <strong>CodePen: <a href="http://codepen.io/2kool2/pen/PWmzMa">Responsively crop copy, restore onclick via sliding drop-down animation</a></strong>
 
@@ -17,7 +17,7 @@ As used on Tesco's <a href="http://www.tesco.com/food-love-stories/">Food Love S
 
 
 <br>
-##Basic usage
+<h2>Basic usage</h2>
 
 Include a link to the styles:
 
@@ -42,7 +42,7 @@ Include a link to the script:
 ```
 
 <br>
-##Features
+<h2>Features</h2>
 
 * User-defined number of lines initially displayed, defined in the HTML.
 * JavaScript writes an accurate inline max-height property which is animated via CSS.
@@ -53,7 +53,7 @@ Include a link to the script:
 
 
 <br>
-##Status
+<h2>Status</h2>
 
 Cross-browser tested:<br>
   Mac: Firefox Dev, Chrome, Safari, Opera Dev.<br>
